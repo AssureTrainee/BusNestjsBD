@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  dbPostgres:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: busdb2023
+    volumes:
+      - busdb:/data/postgres/db
+    networks:
+      - interdb
+
+  pgAdmin:
+    image: 'dpage/pgadmin4:latest'
+    ports:
+      - '15432:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@busdb.com
+      PGADMIN_DEFAULT_PASSWORD: busdb2023
+    volumes:
+      - busdb:/data/pgadmin
+    networks:
+      - interdb
+
+networks:
+  default:
+    name: busdb_default
+    driver: bridge
+
+  interdb:
+    name: busdb_interdb
+    driver: bridge
+
+volumes:
+  busdb:
