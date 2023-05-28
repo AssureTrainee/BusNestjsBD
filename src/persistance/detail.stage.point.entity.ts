@@ -5,7 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
 } from 'typeorm';
-import { StagePointEntity } from './stage-point.entity';
+import { StagePointEntity } from './stage.point.entity';
 import { CardTrackEntity } from './card.track.entity';
 
 @Entity('detail_stage_point')
