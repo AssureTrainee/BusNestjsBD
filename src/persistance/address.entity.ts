@@ -1,9 +1,19 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { PersonEntity } from './person.entity';
 import { BaseEntity } from './base/base.entity';
 
 @Entity('address')
 export class AddressEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid', { name: 'address_id' })
+  addressId: string;
+
   @Column({ name: 'street', length: 100 })
   street: string;
 

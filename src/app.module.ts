@@ -3,7 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServiceModule } from './service/service.module';
+import { PersonController } from './controller/person/person.controller';
+import { PassengerController } from './controller/passenger/passenger.controller';
 import config from './typeorm.config';
+import { PersonService } from './service/person/person.service';
 
 @Module({
   imports: [
@@ -16,10 +19,11 @@ import config from './typeorm.config';
       database: 'postgres',
       synchronize: true,
       autoLoadEntities: true,
+      dropSchema: true,
     }),
     ServiceModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, PersonController, PassengerController],
   providers: [AppService],
 })
 export class AppModule {}
