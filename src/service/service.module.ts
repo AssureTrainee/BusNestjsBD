@@ -7,6 +7,8 @@ import { OwnerEntity } from 'src/persistance/owner.entity';
 import { PassengerEntity } from 'src/persistance/passenger.entity';
 import { PersonEntity } from 'src/persistance/person.entity';
 import { PhoneNumberEntity } from 'src/persistance/phone-number.entity';
+import { PersonService } from './person/person.service';
+import { PassengerService } from './passenger/passenger.service';
 
 @Module({
   imports: [
@@ -20,5 +22,7 @@ import { PhoneNumberEntity } from 'src/persistance/phone-number.entity';
       PassengerEntity,
     ]),
   ],
+  providers: [PersonService, PassengerService],
+  exports: [PersonService, PassengerService],
 })
 export class ServiceModule {}

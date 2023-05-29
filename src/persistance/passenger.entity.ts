@@ -1,14 +1,22 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { PersonEntity } from './person.entity';
 import { BaseEntity } from './base/base.entity';
 
 @Entity('passenger')
 export class PassengerEntity extends BaseEntity {
-  @Column({ name: 'status', length: 100 })
+  @PrimaryGeneratedColumn('uuid', { name: 'passenger_id' })
+  passengerId: string;
+
+  @Column({ name: 'status', length: 100, default: 'ACTIVE' })
   status: string;
 
-  @Column('uuid', { name: 'person_id', nullable: true })
-  @ManyToOne(() => PersonEntity)
+  @OneToOne(() => PersonEntity)
   @JoinColumn({ name: 'person_id' })
-  user: PersonEntity;
+  Person: PersonEntity;
 }
