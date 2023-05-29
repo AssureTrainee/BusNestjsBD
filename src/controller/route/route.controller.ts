@@ -18,8 +18,9 @@ export class RouteController {
   async getRoutes() {
     return await this.routeService.getRoutes();
   }
+
   @Post()
-  async saveRoute(route: RouteDto) {
+  async saveRoute(@Body() route: RouteDto) {
     return await this.routeService.saveRoute(route);
   }
 
