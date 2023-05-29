@@ -9,6 +9,8 @@ import { PersonEntity } from 'src/persistance/person.entity';
 import { PhoneNumberEntity } from 'src/persistance/phone-number.entity';
 import { RouteService } from './route/route.service';
 import { RouteEntity } from 'src/persistance/route.entity';
+import { PersonService } from './person/person.service';
+import { PassengerService } from './passenger/passenger.service';
 
 @Module({
   imports: [
@@ -26,7 +28,7 @@ import { RouteEntity } from 'src/persistance/route.entity';
       'postgres',
     ),
   ],
-  providers: [RouteService],
-  exports: [RouteService],
+  providers: [PersonService, PassengerService, RouteService],
+  exports: [PersonService, PassengerService, RouteService],
 })
 export class ServiceModule {}
