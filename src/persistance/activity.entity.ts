@@ -1,5 +1,4 @@
 import {
-  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -8,6 +7,7 @@ import {
 } from 'typeorm';
 import { ItineraryEntity } from './itineraty.entity';
 import { RouteEntity } from './route.entity';
+import { BaseEntity } from './base/base.entity';
 
 @Entity('activity')
 export class ActivityEntity extends BaseEntity {

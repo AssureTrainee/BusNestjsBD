@@ -1,5 +1,4 @@
 import {
-  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -7,6 +6,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { DriverEntity } from './driver.entity';
+import { BaseEntity } from './base/base.entity';
 
 @Entity('itinerary')
 export class ItineraryEntity extends BaseEntity {

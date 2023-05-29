@@ -1,12 +1,7 @@
-import {
-  BaseEntity,
-  CreateDateColumn,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-} from 'typeorm';
+import { CreateDateColumn, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { StagePointEntity } from './stage.point.entity';
 import { CardTrackEntity } from './card.track.entity';
+import { BaseEntity } from './base/base.entity';
 
 @Entity('detail_stage_point')
 export class DetailStagePointEntity extends BaseEntity {
