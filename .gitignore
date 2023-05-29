@@ -1,6 +1,9 @@
 # compiled output
 /dist
 /node_modules
+busdb/
+postgres/
+.env
 
 # Logs
 logs
