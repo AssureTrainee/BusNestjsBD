@@ -25,27 +25,24 @@ export class PassengeraccountService {
     private passengerService: PassengerService,
     @Inject(forwardRef(() => AccountTypeService))
     private accountTypeService: AccountTypeService,
-    @InjectRepository(PassengerEntity)
-    private readonly passengerRepository: Repository<PassengerEntity>,
+    // @InjectRepository(PassengerEntity)
+    // private readonly passengerRepository: Repository<PassengerEntity>,
     // @InjectRepository(AccountTypeEntity)
     // private readonly accountTyRepository: Repository<AccountTypeEntity>,
   ) {}
 
   async create(createdPassegenerAccount: CreatePassengeraccountDto) {
     try {
-      const passenger = await this.passengerRepository.findOneBy({
-        passengerId: createdPassegenerAccount.passengerId,
-      });
+      // const passenger = await this.passengerRepository.findOneBy({
+      //   passengerId: createdPassegenerAccount.passengerId,
+      // });
 
-      // const passenger = await this.passengerService.findPassengerById(createdPassegenerAccount.passengerId);
+      const passenger = await this.passengerService.findPassengerById(createdPassegenerAccount.passengerId);
       
       if (!passenger) {
         throw new NotFoundException();
       }
       
-      // const accountType = await this.accountTyRepository.findOneBy({
-      //   accounttypeId: createdPassegenerAccount.accountTypeId,
-      // });
       const accountType = await this.accountTypeService.findOne(createdPassegenerAccount.accountTypeId);
       
       if (!accountType) {
@@ -53,7 +50,8 @@ export class PassengeraccountService {
       }
       
       console.log({...createdPassegenerAccount});
-      const passengerAccount: PassengerAccountEntity = this.passengerAccountRepository.create();
+      // error aqui!!!!!!!!
+      const passengerAccount = this.passengerAccountRepository.create();
       console.log({passengerAccount});
       // passengerAccount.Passenger = passenger;
       // passengerAccount.AccountType = accountType;

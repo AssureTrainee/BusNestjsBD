@@ -10,16 +10,16 @@ export class PassengerAccountEntity extends BaseEntity {
     @Column({ name: 'balance' })
     balance: number;
 
-    @Column({ name: 'status', length: 100 })
+    @Column({ name: 'status'})
     status: string;
 
     // @Column('uuid', { name: 'passenger_id', nullable: true })
     // @OneToOne(() => PassengerEntity)
-    @JoinColumn({ name: 'passenger_id' })
-    Passenger: PassengerEntity;
+    // @JoinColumn({ name: 'passenger_id' })
+    // Passenger: PassengerEntity;
 
     // @Column('uuid', { name: 'account_type_id', nullable: true })
     // @OneToOne(() => AccountTypeEntity)
-    @JoinColumn({ name: 'account_type_id' })
-    AccountType: AccountTypeEntity;
+    // @JoinColumn({ name: 'account_type_id' })
+    // AccountType: AccountTypeEntity;
 }

@@ -30,24 +30,18 @@ import { StationsService } from './station/stations.service';
 import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
-<<<<<<< HEAD
 import { AccountTypeEntity } from 'src/persistance/account.type.entity';
-=======
 import { OwnerService } from './owner/owner.service';
 import { ManagerService } from './manager/manager.service';
 import { DriverService } from './driver/driver.service';
->>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
 import { PassengerAccountEntity } from '../persistance/passenger.account.entity';
 import { PassengeraccountService } from './passengeraccount/passenger.account.service';
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 @Module({
   imports: [
     TypeOrmModule.forFeature([
@@ -67,21 +61,10 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
       LogStagePointEntity,
       BusEntity,
       StationEntity,
-<<<<<<< HEAD
-      AccountTypeEntity,
-      PaymentPointEntity,
       PaymentMethodsEntity,
       AccountTypeEntity,
+      PaymentPointEntity,
       PassengerAccountEntity
-    ]),
-  ],
-  providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
-  exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
-
-=======
-      PaymentMethodsEntity,
-      AccountTypeEntity,
-      PaymentPointEntity,
     ]),
   ],
   providers: [
@@ -106,6 +89,7 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
+    PassengeraccountService
   ],
   exports: [
     PersonService,
@@ -129,7 +113,7 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
+    PassengeraccountService
   ],
->>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 })
 export class ServiceModule {}
