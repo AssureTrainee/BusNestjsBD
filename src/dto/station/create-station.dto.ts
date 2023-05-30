@@ -8,8 +8,4 @@ export class CreateStationDto {
     @IsString()
     @MinLength(1)
     address: string;
-    
-    @IsString()
-    @IsOptional()
-    code?: string;
 }

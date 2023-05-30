@@ -39,7 +39,7 @@ export class StationsService {
     let station: StationEntity;
 
     if (isUUID(term)) {
-      station = await this.stationRepository.findOneBy({ id : term });
+      station = await this.stationRepository.findOneBy({ stationId : term });
     } else {
       station = await this.stationRepository.findOneBy({ name: term });
     }
@@ -49,8 +49,11 @@ export class StationsService {
     return station;
   }
 
-  update(id: number, updateStationDto: UpdateStationDto) {
-    return `This action updates a #${id} station`;
+  async update(id: string, updateStationDto: UpdateStationDto) {
+    const station : StationEntity = await this.findOne(id);
+    await this.stationRepository.merge(station, updateStationDto);
+    return await this.stationRepository.save(station);
+    
   }
 
   async remove(id: string) {

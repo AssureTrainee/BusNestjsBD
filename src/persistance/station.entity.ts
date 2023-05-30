@@ -1,9 +1,10 @@
 import { BeforeInsert,  Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity } from './base/base.entity';
 
 @Entity()
-export class StationEntity {
+export class StationEntity extends BaseEntity{
   @PrimaryGeneratedColumn('uuid', {name: 'station_id'})
-  id: string;
+  stationId: string;
 
   @Column('text', {
     unique: true,
@@ -29,7 +30,3 @@ export class StationEntity {
     this.code = `CODE-${timestamp}-${randomDigits}`;
   }
 }
-
-// name
-// addess
-// code
