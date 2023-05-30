@@ -31,8 +31,8 @@ export class DriverController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() UpdateDriverDto: UpdateDriverDto) {
-    return this.driverService.updateDriver(id, UpdateDriverDto);
+  update(@Param('id') id: string, @Body() updateDriverDto: UpdateDriverDto) {
+    return this.driverService.updateDriver(id, updateDriverDto);
   }
 
   @Delete(':id')
