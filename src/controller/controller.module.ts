@@ -15,11 +15,12 @@ import { BusController } from './bus/bus.controller';
 import { StationsController } from './station/stations.controller';
 import { PaymentMethodController } from './payment-method/payment-method.controller';
 import { AccountTypeController } from './accounttype/account-type.controller';
+import { PaymentPointController } from './paymentpoint/payment.point.controller';
+import { PassengeraccountController } from './passengeraccount/passenger.account.controller';
 import { OwnerController } from './owner/owner.controller';
 import { ManagerController } from './manager/manager.controller';
 import { DriverController } from './driver/driver.controller';
 
-import { PaymentPointController } from './paymentpoint/payment.point.controller';
 @Module({
   imports: [ServiceModule],
   controllers: [
@@ -39,10 +40,8 @@ import { PaymentPointController } from './paymentpoint/payment.point.controller'
     DetailStagePointController,
     LogStagePointController,
     BusController,
-    StationsController,
-    PaymentMethodController,
-    AccountTypeController,
     PaymentPointController,
+    PassengeraccountController
   ],
 })
 export class ControllerModule {}

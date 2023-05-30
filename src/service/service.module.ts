@@ -29,13 +29,18 @@ import { BusEntity } from 'src/persistance/Bus.entity';
 import { StationsService } from './station/stations.service';
 import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
-import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
+import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { OwnerService } from './owner/owner.service';
 import { ManagerService } from './manager/manager.service';
 import { DriverService } from './driver/driver.service';
 import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
+import { PassengerAccountEntity } from '../persistance/passenger.account.entity';
+import { PassengeraccountService } from './passengeraccount/passenger.account.service';
+
+
+
 
 @Module({
   imports: [
@@ -59,6 +64,7 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
       PaymentMethodsEntity,
       AccountTypeEntity,
       PaymentPointEntity,
+      PassengerAccountEntity
     ]),
   ],
   providers: [
@@ -83,6 +89,7 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
+    PassengeraccountService
   ],
   exports: [
     PersonService,
@@ -106,6 +113,7 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
+    PassengeraccountService
   ],
 })
 export class ServiceModule {}

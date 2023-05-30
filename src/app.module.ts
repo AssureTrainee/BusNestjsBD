@@ -18,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true,
     }),
     ServiceModule,
-    ControllerModule,
+    ControllerModule
   ],
   controllers: [],
   providers: [],
