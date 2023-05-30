@@ -7,14 +7,19 @@ import { StationsController } from './station/stations.controller';
 import { PaymentMethodController } from './payment-method/payment-method.controller';
 import { AccountTypeController } from './accounttype/account-type.controller';
 import { PaymentPointController } from './paymentpoint/payment.point.controller';
-
+import { PassengeraccountController } from './passengeraccount/passenger.account.controller';
 
 @Module({
   imports: [ServiceModule],
-<<<<<<< HEAD
-  controllers: [RouteController, PassengerController, PersonController, StationsController, AccountTypeController, PaymentPointController],
-=======
-  controllers: [RouteController, PassengerController, PersonController, StationsController, PaymentMethodController, AccountTypeController],
->>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
+  controllers: [
+    RouteController,
+    PassengerController,
+    PersonController,
+    StationsController,
+    AccountTypeController,
+    PaymentMethodController,
+    PaymentPointController,
+    PassengeraccountController
+  ],
 })
 export class ControllerModule {}

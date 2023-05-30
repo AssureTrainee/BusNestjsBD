@@ -13,13 +13,13 @@ export class PassengerAccountEntity extends BaseEntity {
     @Column({ name: 'status', length: 100 })
     status: string;
 
-    @Column('uuid', { name: 'passenger_id', nullable: true })
-    @OneToOne(() => PassengerEntity)
+    // @Column('uuid', { name: 'passenger_id', nullable: true })
+    // @OneToOne(() => PassengerEntity)
     @JoinColumn({ name: 'passenger_id' })
-    passenger: PassengerEntity;
+    Passenger: PassengerEntity;
 
-    @Column('uuid', { name: 'account_type_id', nullable: true })
-    @OneToOne(() => AccountTypeEntity)
+    // @Column('uuid', { name: 'account_type_id', nullable: true })
+    // @OneToOne(() => AccountTypeEntity)
     @JoinColumn({ name: 'account_type_id' })
-    accountType: AccountTypeEntity;
+    AccountType: AccountTypeEntity;
 }

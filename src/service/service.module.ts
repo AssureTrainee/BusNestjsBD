@@ -15,17 +15,15 @@ import { PassengerService } from './passenger/passenger.service';
 import { StationsService } from './station/stations.service';
 import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
-import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
-<<<<<<< HEAD
 import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
+import { PassengerAccountEntity } from '../persistance/passenger.account.entity';
+import { PassengeraccountService } from './passengeraccount/passenger.account.service';
 
 
 
-=======
->>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
 
 @Module({
   imports: [
@@ -39,20 +37,15 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
       PassengerEntity,
       RouteEntity,
       StationEntity,
-<<<<<<< HEAD
       AccountTypeEntity,
-      PaymentPointEntity
-    ]),
-  ],
-  providers: [PersonService, PassengerService, RouteService, StationsService, AccountTypeService, PaymentPointService],
-  exports: [PersonService, PassengerService, RouteService, StationsService, AccountTypeService, PaymentPointService],
-=======
+      PaymentPointEntity,
       PaymentMethodsEntity,
-      AccountTypeEntity
+      AccountTypeEntity,
+      PassengerAccountEntity
     ]),
   ],
-  providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService],
-  exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService],
->>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
+  providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
+  exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
+
 })
 export class ServiceModule {}
