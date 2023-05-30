@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PersonEntity } from 'src/persistance/person.entity';
@@ -10,12 +10,18 @@ export class PersonService {
     private personRepository: Repository<PersonEntity>,
   ) {}
 
-  async findPersonAll(): Promise<PersonEntity[]> {
+  async findPersonAll() {
     return await this.personRepository.find();
   }
 
   async findPersonById(personId: string) {
-    return await this.personRepository.findOneBy({ personId });
+    const person = await this.personRepository.findOneBy({ personId });
+    if (!person) {
+      throw new BadRequestException(
+        `Person with this id: ${personId} not found`,
+      );
+    }
+    return person;
   }
 
   async createPerson(personData: Partial<PersonEntity>) {
@@ -23,8 +29,8 @@ export class PersonService {
     return await this.personRepository.save(person);
   }
 
-  async updatePerson(id: string, personData: Partial<PersonEntity>) {
-    const person = await this.findPersonById(id);
+  async updatePerson(personId: string, personData: Partial<PersonEntity>) {
+    const person = await this.findPersonById(personId);
     if (!person) {
       return null;
     }
@@ -32,8 +38,8 @@ export class PersonService {
     return await this.personRepository.save(person);
   }
 
-  async deletePerson(id: string) {
-    const person = await this.findPersonById(id);
+  async deletePerson(personId: string) {
+    const person = await this.findPersonById(personId);
     if (!person) {
       return false;
     }

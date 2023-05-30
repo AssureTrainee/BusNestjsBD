@@ -4,6 +4,7 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PersonEntity } from './person.entity';
@@ -17,8 +18,7 @@ export class OwnerEntity extends BaseEntity {
   @Column({ name: 'status', length: 100 })
   status: string;
 
-  @Column('uuid', { name: 'person_id', nullable: true })
-  @ManyToOne(() => PersonEntity)
+  @OneToOne(() => PersonEntity)
   @JoinColumn({ name: 'person_id' })
-  user: PersonEntity;
+  Person: PersonEntity;
 }

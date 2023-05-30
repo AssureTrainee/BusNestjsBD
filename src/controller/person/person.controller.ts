@@ -7,6 +7,8 @@ import {
   Put,
   Delete,
   Patch,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { PersonDto } from 'src/dto/person.dto';
 import { PersonEntity } from 'src/persistance/person.entity';
@@ -18,17 +20,12 @@ export class PersonController {
 
   @Get()
   async findAll() {
-    const persons = await this.personService.findPersonAll();
-    return persons.map((person) => this.mapToDto(person));
+    return await this.personService.findPersonAll();
   }
 
   @Get(':id')
   async findById(@Param('id') id: string) {
-    const person = await this.personService.findPersonById(id);
-    if (!person) {
-      return null;
-    }
-    return this.mapToDto(person);
+    return await this.personService.findPersonById(id);
   }
 
   @Post()
@@ -38,30 +35,15 @@ export class PersonController {
   }
 
   @Patch(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() personData: PersonDto,
-  ): Promise<PersonDto | null> {
+  async update(@Param('id') id: string, @Body() personData: PersonDto) {
     const updatedPerson = await this.personService.updatePerson(id, personData);
     if (!updatedPerson) {
       return null;
     }
-    return this.mapToDto(updatedPerson);
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
     return this.personService.deletePerson(id);
-  }
-
-  private mapToDto(person: PersonEntity): PersonDto {
-    const personDto: PersonDto = {
-      firstName: person.firstName,
-      lastName: person.lastName,
-      birthDate: person.birthDate,
-      dni: person.dni,
-      code: person.code,
-    };
-    return personDto;
   }
 }

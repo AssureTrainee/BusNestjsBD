@@ -12,19 +12,42 @@ import { RouteService } from './route/route.service';
 import { RouteEntity } from 'src/persistance/route.entity';
 import { PersonService } from './person/person.service';
 import { PassengerService } from './passenger/passenger.service';
+import { ActivityService } from './activity/activity.service';
+import { ItineraryService } from './itinerary/itinerary.service';
+import { StagePointService } from './stage-point/stage-point.service';
+import { CardTrackService } from './card-track/card-track.service';
+import { ActivityEntity } from 'src/persistance/activity.entity';
+import { ItineraryEntity } from 'src/persistance/itineraty.entity';
+import { StagePointEntity } from 'src/persistance/stage.point.entity';
+import { CardTrackEntity } from 'src/persistance/card.track.entity';
+import { DetailStagePointService } from './detail-stage-point/detail-stage-point.service';
+import { DetailStagePointEntity } from 'src/persistance/detail.stage.point.entity';
+import { LogStagePointService } from './log-stage-point/log-stage-point.service';
+import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
+import { BusService } from './bus/bus.service';
+import { BusEntity } from 'src/persistance/Bus.entity';
 import { StationsService } from './station/stations.service';
 import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
+<<<<<<< HEAD
 import { AccountTypeEntity } from 'src/persistance/account.type.entity';
+=======
+import { OwnerService } from './owner/owner.service';
+import { ManagerService } from './manager/manager.service';
+import { DriverService } from './driver/driver.service';
+>>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
 import { PassengerAccountEntity } from '../persistance/passenger.account.entity';
 import { PassengeraccountService } from './passengeraccount/passenger.account.service';
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 @Module({
   imports: [
     TypeOrmModule.forFeature([
@@ -36,7 +59,15 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
       OwnerEntity,
       PassengerEntity,
       RouteEntity,
+      ActivityEntity,
+      ItineraryEntity,
+      StagePointEntity,
+      CardTrackEntity,
+      DetailStagePointEntity,
+      LogStagePointEntity,
+      BusEntity,
       StationEntity,
+<<<<<<< HEAD
       AccountTypeEntity,
       PaymentPointEntity,
       PaymentMethodsEntity,
@@ -47,5 +78,58 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
   providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
   exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService, PaymentPointService, PassengeraccountService],
 
+=======
+      PaymentMethodsEntity,
+      AccountTypeEntity,
+      PaymentPointEntity,
+    ]),
+  ],
+  providers: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+    ManagerService,
+    DriverService,
+    ActivityService,
+    ItineraryService,
+    StagePointService,
+    CardTrackService,
+    ActivityService,
+    DetailStagePointService,
+    LogStagePointService,
+    BusService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    PaymentPointService,
+  ],
+  exports: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+    ManagerService,
+    DriverService,
+    ActivityService,
+    ItineraryService,
+    StagePointService,
+    CardTrackService,
+    ActivityService,
+    DetailStagePointService,
+    LogStagePointService,
+    BusService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    PaymentPointService,
+  ],
+>>>>>>> a9c29409c6e26d61995632ef2d2bbda9c4e96456
 })
 export class ServiceModule {}

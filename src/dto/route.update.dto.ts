@@ -3,13 +3,13 @@ import { IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class RouteUpdateDto {
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Name must be a string.' })
   @Transform(({ value }): string => value?.trim())
   @MaxLength(50)
   name: string;
 
   @IsOptional()
-  @IsString()
+  @IsString({ message: 'Status must be a string.' })
   @Transform(({ value }): string => value?.trim())
   @MaxLength(10)
   status: string;

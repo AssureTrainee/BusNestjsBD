@@ -14,7 +14,7 @@ export class StagePointEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid', { name: 'stage_point_id' })
   stagePointId: string;
 
-  @Column({ name: 'arrival_time', length: 100 })
+  @Column({ name: 'arrival_time' })
   arrivalTime: Date;
 
   @Column({ name: 'location', length: 100 })
@@ -25,9 +25,9 @@ export class StagePointEntity extends BaseEntity {
 
   @JoinColumn({ name: 'target_stage_point_id' })
   @OneToOne(() => StagePointEntity)
-  targetStagePointId: StagePointEntity;
+  StagePoint: StagePointEntity;
 
   @JoinColumn({ name: 'route_id' })
   @ManyToOne(() => RouteEntity)
-  route: RouteEntity;
+  Route: RouteEntity;
 }
