@@ -18,13 +18,13 @@ export class DetailStagePointEntity extends BaseEntity {
     type: 'timestamp',
     name: 'checked_at',
   })
-  check_at: Date;
+  checkAt: Date;
 
   @JoinColumn({ name: 'card_track_id' })
   @ManyToOne(() => CardTrackEntity)
-  card_track_id: CardTrackEntity;
+  CardTrack: CardTrackEntity;
 
   @JoinColumn({ name: 'stage_point_id' })
   @ManyToOne(() => StagePointEntity)
-  stagePoint: StagePointEntity;
+  StagePoint: StagePointEntity;
 }

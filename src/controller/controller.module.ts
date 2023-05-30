@@ -3,18 +3,36 @@ import { RouteController } from './route/route.controller';
 import { ServiceModule } from 'src/service/service.module';
 import { PassengerController } from './passenger/passenger.controller';
 import { PersonController } from './person/person.controller';
+
+import { ActivityController } from './activity/activity.controller';
+import { ItineraryController } from './itinerary/itinerary.controller';
+import { StagePointController } from './stage-point/stage-point.controller';
+import { CardTrackController } from './card-track/card-track.controller';
+import { DetailStagePointController } from './detail-stage-point/detail-stage-point.controller';
+import { LogStagePointController } from './log-stage-point/log-stage-point.controller';
+import { BusController } from './bus/bus.controller';
+
 import { StationsController } from './station/stations.controller';
 import { PaymentMethodController } from './payment-method/payment-method.controller';
 import { AccountTypeController } from './accounttype/account-type.controller';
 import { PaymentPointController } from './paymentpoint/payment.point.controller';
-
-
 @Module({
   imports: [ServiceModule],
-<<<<<<< HEAD
-  controllers: [RouteController, PassengerController, PersonController, StationsController, AccountTypeController, PaymentPointController],
-=======
-  controllers: [RouteController, PassengerController, PersonController, StationsController, PaymentMethodController, AccountTypeController],
->>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
+  controllers: [
+    RouteController,
+    PassengerController,
+    PersonController,
+    ActivityController,
+    ItineraryController,
+    StagePointController,
+    CardTrackController,
+    DetailStagePointController,
+    LogStagePointController,
+    BusController,
+    StationsController,
+    PaymentMethodController,
+    AccountTypeController,
+    PaymentPointController,
+  ],
 })
 export class ControllerModule {}
