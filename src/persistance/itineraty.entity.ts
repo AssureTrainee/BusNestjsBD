@@ -1,15 +1,19 @@
 import {
-  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { DriverEntity } from './driver.entity';
+import { BaseEntity } from './base/base.entity';
 
 @Entity('itinerary')
 export class ItineraryEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid', { name: 'itinerary_id' })
+  itineraryId: string;
+
   @Column({ name: 'description', length: 100 })
   description: string;
 

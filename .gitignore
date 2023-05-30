@@ -1,6 +1,10 @@
 # compiled output
 /dist
 /node_modules
+busdb/
+postgres/
+.env
+src/app.module.ts
 
 # Logs
 logs
