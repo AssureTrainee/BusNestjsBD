@@ -4,12 +4,16 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ActivityEntity } from './activity.entity';
 import { BaseEntity } from './base/base.entity';
 
-@Entity('CardTrackEntity')
+@Entity('card_track')
 export class CardTrackEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid', { name: 'card_track_id' })
+  cardTrackId: string;
+
   @Column({ name: 'code', length: 100 })
   code: string;
 

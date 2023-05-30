@@ -14,19 +14,16 @@ import { PassengerService } from './passenger/passenger.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature(
-      [
-        PersonEntity,
-        AddressEntity,
-        PhoneNumberEntity,
-        DriverEntity,
-        ManagerEntity,
-        OwnerEntity,
-        PassengerEntity,
-        RouteEntity,
-      ],
-      'postgres',
-    ),
+    TypeOrmModule.forFeature([
+      PersonEntity,
+      AddressEntity,
+      PhoneNumberEntity,
+      DriverEntity,
+      ManagerEntity,
+      OwnerEntity,
+      PassengerEntity,
+      RouteEntity,
+    ]),
   ],
   providers: [PersonService, PassengerService, RouteService],
   exports: [PersonService, PassengerService, RouteService],

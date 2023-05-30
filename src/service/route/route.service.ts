@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   ConflictException,
   Injectable,
   NotFoundException,
@@ -12,15 +11,15 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class RouteService {
   constructor(
-    @InjectRepository(RouteEntity, 'postgres')
+    @InjectRepository(RouteEntity)
     private routeRepository: Repository<RouteEntity>,
   ) {}
 
-  async getRoutes(): Promise<RouteEntity[]> {
+  async findAllRoutes(): Promise<RouteEntity[]> {
     return await this.routeRepository.find();
   }
 
-  async saveRoute(routeDto: RouteDto) {
+  async createRoute(routeDto: RouteDto) {
     const route = this.routeRepository.create(routeDto);
     try {
       return await this.routeRepository.save(route);
@@ -29,16 +28,16 @@ export class RouteService {
     }
   }
 
-  async getRouteById(id: string) {
-    const route = await this.routeRepository.findOne({ where: { id } });
+  async findRouteById(routeId: string) {
+    const route = await this.routeRepository.findOneBy({ routeId });
     if (!route) {
-      throw new BadRequestException('User not found');
+      throw new NotFoundException(`Route with this id: ${routeId} not found`);
     }
     return route;
   }
 
   async updateRoute(id: string, routeUpdate: RouteDto) {
-    const route: RouteEntity = await this.getRouteById(id);
+    const route: RouteEntity = await this.findRouteById(id);
     await this.routeRepository.merge(route, routeUpdate);
     return await this.routeRepository.save(route);
   }
