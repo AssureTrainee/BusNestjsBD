@@ -17,6 +17,7 @@ import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
 import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
+import { OwnerService } from './owner/owner.service';
 
 @Module({
   imports: [
@@ -31,10 +32,26 @@ import { AccountTypeService } from './accounttype/account-type.service';
       RouteEntity,
       StationEntity,
       PaymentMethodsEntity,
-      AccountTypeEntity
+      AccountTypeEntity,
     ]),
   ],
-  providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService],
-  exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService, AccountTypeService],
+  providers: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+  ],
+  exports: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+  ],
 })
 export class ServiceModule {}
