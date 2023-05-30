@@ -31,6 +31,9 @@ import { PaymentMethodService } from './payment-method/payment-method.service';
 import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
 import { AccountTypeEntity } from 'src/persistance/account.type.entity';
 import { AccountTypeService } from './accounttype/account-type.service';
+import { OwnerService } from './owner/owner.service';
+import { ManagerService } from './manager/manager.service';
+import { DriverService } from './driver/driver.service';
 import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
 
@@ -62,6 +65,12 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
     PersonService,
     PassengerService,
     RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+    ManagerService,
+    DriverService,
     ActivityService,
     ItineraryService,
     StagePointService,
@@ -79,6 +88,12 @@ import { PaymentPointEntity } from '../persistance/payment.point.entity';
     PersonService,
     PassengerService,
     RouteService,
+    StationsService,
+    PaymentMethodService,
+    AccountTypeService,
+    OwnerService,
+    ManagerService,
+    DriverService,
     ActivityService,
     ItineraryService,
     StagePointService,

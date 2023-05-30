@@ -10,6 +10,7 @@ import { PassengerEntity } from 'src/persistance/passenger.entity';
 import { PersonEntity } from 'src/persistance/person.entity';
 import { PersonService } from '../person/person.service';
 import { PassengerDto } from 'src/dto/passenger.dto';
+import { UpdatePassengerDto } from 'src/dto/update-passenger.dto';
 
 @Injectable()
 export class PassengerService {
@@ -21,17 +22,6 @@ export class PassengerService {
     @Inject(forwardRef(() => PersonService))
     private personService: PersonService,
   ) {}
-
-  async findAllPassengers() {
-    return this.passengerRepository.find({ relations: ['person'] });
-  }
-
-  async findPassengerById(passengerId: string) {
-    return this.passengerRepository.findOne({
-      where: { passengerId },
-      relations: ['person'],
-    });
-  }
 
   async createPassenger(passengerData: PassengerDto) {
     const person = await this.personRepository.findOneBy({
@@ -47,28 +37,6 @@ export class PassengerService {
     return this.passengerRepository.save(passenger);
   }
 
-  // async updatePassenger(id: string, passengerData: Partial<PassengerEntity>) {
-  //   const passenger = await this.passengerRepository.findOne({
-  //     where: { id },
-  //     relations: ['person'],
-  //   });
-  //   if (!passenger) {
-  //     throw new HttpException(
-  //       'No existe un passenger con este ID.',
-  //       HttpStatus.NOT_FOUND,
-  //     );
-  //   }
-
-  //   passenger.status = passengerData.status;
-
-  //   if (passengerData.personId) {
-  //     Object.assign(passenger.personId, passengerData.personId);
-  //     await this.personRepository.save(passenger.personId);
-  //   }
-
-  //   return this.passengerRepository.save(passenger);
-  // }
-
   async deletePassengerById(passengerId: string) {
     const passenger = await this.passengerRepository.findOne({
       where: { passengerId },
@@ -76,8 +44,34 @@ export class PassengerService {
     if (!passenger) {
       return false;
     }
-
     await this.passengerRepository.remove(passenger);
     return true;
+  }
+
+  async findAllPassengers() {
+    return this.passengerRepository.find();
+  }
+
+  async findPassengerById(passengerId: string) {
+    const passenger = await this.passengerRepository.findOne({
+      where: { passengerId },
+    });
+    if (!passenger) {
+      throw new NotFoundException();
+    }
+    return passenger;
+  }
+
+  async updatePassenger(
+    passengerId: string,
+    passengerData: UpdatePassengerDto,
+  ) {
+    const passenger = await this.passengerRepository.findOne({
+      where: { passengerId },
+    });
+    if (!passenger) {
+      throw new NotFoundException();
+    }
+    return this.passengerRepository.update({ passengerId }, passengerData);
   }
 }
