@@ -1,11 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServiceModule } from './service/service.module';
-import { PersonController } from './controller/person/person.controller';
-import { PassengerController } from './controller/passenger/passenger.controller';
-import { StationsController } from './controller/station/stations.controller';
+import { ControllerModule } from './controller/controller.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -20,11 +16,11 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.DB_PASSWORD,
       synchronize: true,
       autoLoadEntities: true,
-      dropSchema: true,
     }),
-    ServiceModule
+    ServiceModule,
+    ControllerModule,
   ],
-  controllers: [AppController, PersonController, PassengerController, StationsController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

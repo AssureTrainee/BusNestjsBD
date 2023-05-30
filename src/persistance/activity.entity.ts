@@ -1,16 +1,20 @@
 import {
-  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ItineraryEntity } from './itineraty.entity';
 import { RouteEntity } from './route.entity';
+import { BaseEntity } from './base/base.entity';
 
 @Entity('activity')
 export class ActivityEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid', { name: 'activity_id' })
+  activityId: string;
+
   @CreateDateColumn({
     type: 'timestamp',
     name: 'departure_time',
