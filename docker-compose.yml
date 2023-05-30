@@ -2,13 +2,15 @@ version: '3.8'
 
 services:
   dbPostgres:
+    container_name: busdb
     image: 'postgres:latest'
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: busdb2023
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB:  ${DB_NAME}
     volumes:
-      - busdb:/data/postgres/db
+      - ./postgres:/var/lib/postgresql/data
     networks:
       - interdb
 

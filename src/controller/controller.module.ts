@@ -3,6 +3,7 @@ import { RouteController } from './route/route.controller';
 import { ServiceModule } from 'src/service/service.module';
 import { PassengerController } from './passenger/passenger.controller';
 import { PersonController } from './person/person.controller';
+
 import { ActivityController } from './activity/activity.controller';
 import { ItineraryController } from './itinerary/itinerary.controller';
 import { StagePointController } from './stage-point/stage-point.controller';
@@ -11,6 +12,10 @@ import { DetailStagePointController } from './detail-stage-point/detail-stage-po
 import { LogStagePointController } from './log-stage-point/log-stage-point.controller';
 import { BusController } from './bus/bus.controller';
 
+import { StationsController } from './station/stations.controller';
+import { PaymentMethodController } from './payment-method/payment-method.controller';
+import { AccountTypeController } from './accounttype/account-type.controller';
+import { PaymentPointController } from './paymentpoint/payment.point.controller';
 @Module({
   imports: [ServiceModule],
   controllers: [
@@ -24,6 +29,10 @@ import { BusController } from './bus/bus.controller';
     DetailStagePointController,
     LogStagePointController,
     BusController,
+    StationsController,
+    PaymentMethodController,
+    AccountTypeController,
+    PaymentPointController,
   ],
 })
 export class ControllerModule {}

@@ -7,6 +7,7 @@ import { OwnerEntity } from 'src/persistance/owner.entity';
 import { PassengerEntity } from 'src/persistance/passenger.entity';
 import { PersonEntity } from 'src/persistance/person.entity';
 import { PhoneNumberEntity } from 'src/persistance/phone-number.entity';
+import { StationEntity } from 'src/persistance/station.entity';
 import { RouteService } from './route/route.service';
 import { RouteEntity } from 'src/persistance/route.entity';
 import { PersonService } from './person/person.service';
@@ -25,6 +26,20 @@ import { LogStagePointService } from './log-stage-point/log-stage-point.service'
 import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
 import { BusService } from './bus/bus.service';
 import { BusEntity } from 'src/persistance/Bus.entity';
+import { StationsService } from './station/stations.service';
+import { PaymentMethodService } from './payment-method/payment-method.service';
+import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
+import { AccountTypeEntity } from 'src/persistance/account.type.entity';
+import { AccountTypeService } from './accounttype/account-type.service';
+<<<<<<< HEAD
+import { AccountTypeEntity } from 'src/persistance/account.type.entity';
+import { PaymentPointService } from './paymentpoint/payment-point.service';
+import { PaymentPointEntity } from '../persistance/payment.point.entity';
+
+
+
+=======
+>>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
 
 @Module({
   imports: [
@@ -44,6 +59,17 @@ import { BusEntity } from 'src/persistance/Bus.entity';
       DetailStagePointEntity,
       LogStagePointEntity,
       BusEntity,
+      StationEntity,
+<<<<<<< HEAD
+      AccountTypeEntity,
+      PaymentPointEntity
+    ]),
+  ],
+  providers: [PersonService, PassengerService, RouteService, StationsService, AccountTypeService, PaymentPointService],
+  exports: [PersonService, PassengerService, RouteService, StationsService, AccountTypeService, PaymentPointService],
+=======
+      PaymentMethodsEntity,
+      AccountTypeEntity
     ]),
   ],
   providers: [
@@ -58,7 +84,7 @@ import { BusEntity } from 'src/persistance/Bus.entity';
     DetailStagePointService,
     LogStagePointService,
     BusService,
-  ],
+  , StationsService, PaymentMethodService, AccountTypeService],
   exports: [
     PersonService,
     PassengerService,
@@ -71,6 +97,7 @@ import { BusEntity } from 'src/persistance/Bus.entity';
     DetailStagePointService,
     LogStagePointService,
     BusService,
-  ],
+  , StationsService, PaymentMethodService, AccountTypeService],
+>>>>>>> 7e22592d83e605f9b088262def59ff75d88062f8
 })
 export class ServiceModule {}
