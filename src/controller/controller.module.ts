@@ -8,6 +8,7 @@ import { ItineraryController } from './itinerary/itinerary.controller';
 import { StagePointController } from './stage-point/stage-point.controller';
 import { CardTrackController } from './card-track/card-track.controller';
 import { DetailStagePointController } from './detail-stage-point/detail-stage-point.controller';
+import { LogStagePointController } from './log-stage-point/log-stage-point.controller';
 
 @Module({
   imports: [ServiceModule],
@@ -20,6 +21,7 @@ import { DetailStagePointController } from './detail-stage-point/detail-stage-po
     StagePointController,
     CardTrackController,
     DetailStagePointController,
+    LogStagePointController,
   ],
 })
 export class ControllerModule {}

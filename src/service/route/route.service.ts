@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { RouteDto } from '../../dto/route.dto';
 import { RouteEntity } from '../../persistance/route.entity';
 import { Repository } from 'typeorm';
+import { RouteUpdateDto } from 'src/dto/route.update.dto';
 
 @Injectable()
 export class RouteService {
@@ -36,7 +37,7 @@ export class RouteService {
     return route;
   }
 
-  async updateRoute(id: string, routeUpdate: RouteDto) {
+  async updateRoute(id: string, routeUpdate: RouteUpdateDto) {
     const route: RouteEntity = await this.findRouteById(id);
     await this.routeRepository.merge(route, routeUpdate);
     return await this.routeRepository.save(route);
