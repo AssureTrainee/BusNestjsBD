@@ -9,7 +9,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateAccountTypeDto } from '../../dto/accounttype/create-account-type.dto';
 import { UpdateAccountTypeDto } from '../../dto/accounttype/update-account-type.dto';
-import { AccountTypeEntity } from '../../persistance/accounttype.entity';
+import { AccountTypeEntity } from '../../persistance/account.type.entity';
 import { validate as isUUID } from 'uuid';
 @Injectable()
 export class AccountTypeService {

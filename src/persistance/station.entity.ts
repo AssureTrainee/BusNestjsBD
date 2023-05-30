@@ -1,5 +1,6 @@
-import { BeforeInsert,  Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseEntity } from './base/base.entity';
+// import { PaymentPointEntity } from './payment.point.entity';
 
 @Entity('station')
 export class StationEntity extends BaseEntity{
@@ -20,6 +21,9 @@ export class StationEntity extends BaseEntity{
   })
   code: string;
 
+  // @OneToMany(() => PaymentPointEntity, paymentPoint => paymentPoint.station)
+  // paymentPoints: PaymentPointEntity[];
+
   @BeforeInsert()
   generateCode() {
     const timestamp = Date.now().toString();
@@ -29,4 +33,5 @@ export class StationEntity extends BaseEntity{
 
     this.code = `CODE-${timestamp}-${randomDigits}`;
   }
+  
 }

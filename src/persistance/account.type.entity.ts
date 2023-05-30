@@ -1,15 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base/base.entity';
 
-
-@Entity('accountType')
+@Entity('account_type')
 export class AccountTypeEntity extends BaseEntity {
-    @PrimaryGeneratedColumn('uuid', { name: 'account_type_id' })
-    accountTypeId : string;
+  @PrimaryGeneratedColumn('uuid', { name: 'account_type_id' })
+  accounttypeId: string;
 
-    @Column({ name: 'type', length: 100 })
-    type : string;
+  @Column('text', {
+    unique: true,
+  })
+  type: string;
 
-    @Column({ name: 'fee' })
-    fee: number;
+  @Column({ name: 'fee', type: 'numeric' })
+  fee: number;
 }
