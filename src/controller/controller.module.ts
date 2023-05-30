@@ -4,10 +4,11 @@ import { ServiceModule } from 'src/service/service.module';
 import { PassengerController } from './passenger/passenger.controller';
 import { PersonController } from './person/person.controller';
 import { StationsController } from './station/stations.controller';
+import { PaymentMethodController } from './payment-method/payment-method.controller';
 import { AccountTypeController } from './accounttype/account-type.controller';
 
 @Module({
   imports: [ServiceModule],
-  controllers: [RouteController, PassengerController, PersonController, StationsController, AccountTypeController],
+  controllers: [RouteController, PassengerController, PersonController, StationsController, PaymentMethodController, AccountTypeController],
 })
 export class ControllerModule {}
