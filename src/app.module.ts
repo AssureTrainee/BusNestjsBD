@@ -19,7 +19,6 @@ import { PersonService } from './service/person/person.service';
       database: 'postgres',
       synchronize: true,
       autoLoadEntities: true,
-      dropSchema: true,
     }),
     ServiceModule,
   ],
