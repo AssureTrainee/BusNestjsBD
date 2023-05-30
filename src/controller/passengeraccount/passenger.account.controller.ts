@@ -24,11 +24,11 @@ export class PassengeraccountController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePassengeraccountDto: UpdatePassengeraccountDto) {
-    return this.passengeraccountService.update(+id, updatePassengeraccountDto);
+    return this.passengeraccountService.update(id, updatePassengeraccountDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.passengeraccountService.remove(+id);
+    return this.passengeraccountService.remove(id);
   }
 }

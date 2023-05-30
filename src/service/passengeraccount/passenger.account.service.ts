@@ -25,42 +25,36 @@ export class PassengeraccountService {
     private passengerService: PassengerService,
     @Inject(forwardRef(() => AccountTypeService))
     private accountTypeService: AccountTypeService,
-    // @InjectRepository(PassengerEntity)
-    // private readonly passengerRepository: Repository<PassengerEntity>,
-    // @InjectRepository(AccountTypeEntity)
-    // private readonly accountTyRepository: Repository<AccountTypeEntity>,
   ) {}
 
   async create(createdPassegenerAccount: CreatePassengeraccountDto) {
     try {
-      // const passenger = await this.passengerRepository.findOneBy({
-      //   passengerId: createdPassegenerAccount.passengerId,
-      // });
+      const passenger = await this.passengerService.findPassengerById(
+        createdPassegenerAccount.passengerId,
+      );
 
-      const passenger = await this.passengerService.findPassengerById(createdPassegenerAccount.passengerId);
-      
       if (!passenger) {
         throw new NotFoundException();
       }
-      
-      const accountType = await this.accountTypeService.findOne(createdPassegenerAccount.accountTypeId);
-      
+
+      const accountType = await this.accountTypeService.findOne(
+        createdPassegenerAccount.accountTypeId,
+      );
+
       if (!accountType) {
         throw new NotFoundException();
       }
-      
-      console.log({...createdPassegenerAccount});
-      // error aqui!!!!!!!!
-      const passengerAccount = this.passengerAccountRepository.create();
-      console.log({passengerAccount});
-      // passengerAccount.Passenger = passenger;
-      // passengerAccount.AccountType = accountType;
-      
+
+      const passengerAccount = this.passengerAccountRepository.create({
+        ...createdPassegenerAccount,
+      });
+      passengerAccount.Passenger = passenger;
+      passengerAccount.AccountType = accountType;
+
       await this.passengerAccountRepository.save(passengerAccount);
 
       return passengerAccount;
     } catch (error) {
-      console.log(error);
       this.handleExceptions(error);
     }
   }
@@ -78,15 +72,32 @@ export class PassengeraccountService {
     if (!passengeraccount) {
       throw new NotFoundException(`Passenger account with id ${id} not found`);
     }
+
     return passengeraccount;
   }
 
-  update(id: number, updatePassengeraccountDto: UpdatePassengeraccountDto) {
-    return `This action updates a #${id} passengeraccount`;
+  async update(
+    id: string,
+    updatePassengeraccountDto: UpdatePassengeraccountDto,
+  ) {
+    const passengerAccount: PassengerAccountEntity = await this.findOne(id);
+    if(!passengerAccount){
+      throw new NotFoundException();
+    }
+    await this.passengerAccountRepository.merge(
+      passengerAccount,
+      updatePassengeraccountDto,
+    );
+    return await this.passengerAccountRepository.save(passengerAccount);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} passengeraccount`;
+  async remove(id: string) {
+    const passengerAccount: PassengerAccountEntity = await this.findOne(id);
+    if(!passengerAccount){
+      throw new NotFoundException();
+    }
+    await this.passengerAccountRepository.remove(passengerAccount);
+    return true;
   }
 
   private handleExceptions(error: any) {

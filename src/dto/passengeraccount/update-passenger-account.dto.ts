@@ -1,4 +1,13 @@
-import { PartialType } from '@nestjs/swagger';
-import { CreatePassengeraccountDto } from './create-passenger-account.dto';
+import { IsIn, IsNumber, IsString, IsOptional } from 'class-validator';
 
-export class UpdatePassengeraccountDto extends PartialType(CreatePassengeraccountDto) {}
+export class UpdatePassengeraccountDto  {
+    
+    @IsOptional()
+    @IsString()
+    @IsIn(['ENABLED', 'DISABLED'])
+    status: string;
+
+    @IsOptional()
+    @IsNumber()
+    balance: number;
+}
