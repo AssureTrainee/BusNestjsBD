@@ -59,6 +59,7 @@ export class StationsService {
   async remove(id: string) {
     const station = await this.findOne(id);
     await this.stationRepository.remove(station);
+    return true;
   }
 
   private handleExceptions(error: any) {

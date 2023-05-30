@@ -1,7 +1,7 @@
 import { BeforeInsert,  Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base/base.entity';
 
-@Entity()
+@Entity('station')
 export class StationEntity extends BaseEntity{
   @PrimaryGeneratedColumn('uuid', {name: 'station_id'})
   stationId: string;
