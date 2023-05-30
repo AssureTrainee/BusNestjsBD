@@ -4,6 +4,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ItineraryEntity } from './itineraty.entity';
@@ -32,9 +33,9 @@ export class ActivityEntity extends BaseEntity {
 
   @JoinColumn({ name: 'itineraty_id' })
   @ManyToOne(() => ItineraryEntity)
-  itineraryId: ItineraryEntity;
+  Itinerary: ItineraryEntity;
 
   @JoinColumn({ name: 'route_id' })
-  @ManyToOne(() => RouteEntity)
-  route: RouteEntity;
+  @OneToOne(() => RouteEntity)
+  Route: RouteEntity;
 }
