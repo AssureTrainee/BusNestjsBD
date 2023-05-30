@@ -11,6 +11,14 @@ import { RouteService } from './route/route.service';
 import { RouteEntity } from 'src/persistance/route.entity';
 import { PersonService } from './person/person.service';
 import { PassengerService } from './passenger/passenger.service';
+import { ActivityService } from './activity/activity.service';
+import { ItineraryService } from './itinerary/itinerary.service';
+import { StagePointService } from './stage-point/stage-point.service';
+import { CardTrackService } from './card-track/card-track.service';
+import { ActivityEntity } from 'src/persistance/activity.entity';
+import { ItineraryEntity } from 'src/persistance/itineraty.entity';
+import { StagePointEntity } from 'src/persistance/stage.point.entity';
+import { CardTrackEntity } from 'src/persistance/card.track.entity';
 
 @Module({
   imports: [
@@ -23,9 +31,31 @@ import { PassengerService } from './passenger/passenger.service';
       OwnerEntity,
       PassengerEntity,
       RouteEntity,
+      ActivityEntity,
+      ItineraryEntity,
+      StagePointEntity,
+      CardTrackEntity,
     ]),
   ],
-  providers: [PersonService, PassengerService, RouteService],
-  exports: [PersonService, PassengerService, RouteService],
+  providers: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    ActivityService,
+    ItineraryService,
+    StagePointService,
+    CardTrackService,
+    ActivityService,
+  ],
+  exports: [
+    PersonService,
+    PassengerService,
+    RouteService,
+    ActivityService,
+    ItineraryService,
+    StagePointService,
+    CardTrackService,
+    ActivityService,
+  ],
 })
 export class ServiceModule {}

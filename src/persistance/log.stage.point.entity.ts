@@ -15,7 +15,7 @@ export class LogStagePointEntity extends BaseEntity {
 
   @JoinColumn({ name: 'detail_stage_point_id' })
   @ManyToOne(() => DetailStagePointEntity)
-  detailStagePointId: DetailStagePointEntity;
+  DetailStagePointId: DetailStagePointEntity;
 
   @CreateDateColumn({
     type: 'timestamp',

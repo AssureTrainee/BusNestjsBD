@@ -4,6 +4,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ActivityEntity } from './activity.entity';
@@ -17,10 +18,10 @@ export class CardTrackEntity extends BaseEntity {
   @Column({ name: 'code', length: 100 })
   code: string;
 
-  @Column({ name: 'code', length: 100 })
+  @Column({ name: 'details', length: 100 })
   details: string;
 
-  @Column({ name: 'code', length: 100 })
+  @Column({ name: 'status', length: 100 })
   status: string;
 
   @CreateDateColumn({
@@ -36,6 +37,6 @@ export class CardTrackEntity extends BaseEntity {
   arrivalTime: Date;
 
   @JoinColumn({ name: 'activity_id' })
-  @ManyToOne(() => ActivityEntity)
-  activity: ActivityEntity;
+  @OneToOne(() => ActivityEntity)
+  Activity: ActivityEntity;
 }

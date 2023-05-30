@@ -25,7 +25,7 @@ export class ItineraryEntity extends BaseEntity {
 
   @JoinColumn({ name: 'driver_id' })
   @ManyToOne(() => DriverEntity)
-  driverId: DriverEntity;
+  Driver: DriverEntity;
 
   //Falta Implementacion de BusEntity
   //   @JoinColumn({ name: 'bus_id' })
