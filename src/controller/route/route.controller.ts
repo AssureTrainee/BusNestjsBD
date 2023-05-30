@@ -6,7 +6,6 @@ import {
   Param,
   Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { RouteDto } from 'src/dto/route.dto';
 import { RouteUpdateDto } from 'src/dto/route.update.dto';
