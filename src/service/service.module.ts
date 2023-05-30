@@ -23,6 +23,8 @@ import { DetailStagePointService } from './detail-stage-point/detail-stage-point
 import { DetailStagePointEntity } from 'src/persistance/detail.stage.point.entity';
 import { LogStagePointService } from './log-stage-point/log-stage-point.service';
 import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
+import { BusService } from './bus/bus.service';
+import { BusEntity } from 'src/persistance/Bus.entity';
 
 @Module({
   imports: [
@@ -41,6 +43,7 @@ import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
       CardTrackEntity,
       DetailStagePointEntity,
       LogStagePointEntity,
+      BusEntity,
     ]),
   ],
   providers: [
@@ -54,6 +57,7 @@ import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
     ActivityService,
     DetailStagePointService,
     LogStagePointService,
+    BusService,
   ],
   exports: [
     PersonService,
@@ -66,6 +70,7 @@ import { LogStagePointEntity } from 'src/persistance/log.stage.point.entity';
     ActivityService,
     DetailStagePointService,
     LogStagePointService,
+    BusService,
   ],
 })
 export class ServiceModule {}

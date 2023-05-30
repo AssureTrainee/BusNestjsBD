@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { DriverEntity } from './driver.entity';
 import { BaseEntity } from './base/base.entity';
+import { BusEntity } from './Bus.entity';
 
 @Entity('itinerary')
 export class ItineraryEntity extends BaseEntity {
@@ -27,8 +28,7 @@ export class ItineraryEntity extends BaseEntity {
   @ManyToOne(() => DriverEntity)
   Driver: DriverEntity;
 
-  //Falta Implementacion de BusEntity
-  //   @JoinColumn({ name: 'bus_id' })
-  //   @ManyToOne(() => BusEntity)
-  //   bus: BusEntity;
+  @JoinColumn({ name: 'bus_id' })
+  @ManyToOne(() => BusEntity)
+  bus: BusEntity;
 }
