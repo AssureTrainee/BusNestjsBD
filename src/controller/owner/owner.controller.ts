@@ -11,7 +11,7 @@ import { OwnerService } from 'src/service/owner/owner.service';
 import { OwnerDto } from 'src/dto/owner/owner.dto';
 import { UpdateOwnerDto } from 'src/dto/owner/update-owner.dto';
 
-@Controller('passengers')
+@Controller('owner')
 export class OwnerController {
   constructor(private ownerController: OwnerService) {}
 

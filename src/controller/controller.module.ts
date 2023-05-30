@@ -7,6 +7,8 @@ import { StationsController } from './station/stations.controller';
 import { PaymentMethodController } from './payment-method/payment-method.controller';
 import { AccountTypeController } from './accounttype/account-type.controller';
 import { OwnerController } from './owner/owner.controller';
+import { ManagerController } from './manager/manager.controller';
+import { DriverController } from './driver/driver.controller';
 
 @Module({
   imports: [ServiceModule],
@@ -18,6 +20,8 @@ import { OwnerController } from './owner/owner.controller';
     PaymentMethodController,
     AccountTypeController,
     OwnerController,
+    ManagerController,
+    DriverController,
   ],
 })
 export class ControllerModule {}
