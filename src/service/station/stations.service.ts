@@ -7,9 +7,9 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateStationDto } from './dto/create-station.dto';
-import { UpdateStationDto } from './dto/update-station.dto';
-import { Station } from './entities/station.entity';
+import { CreateStationDto } from '../../dto/station/create-station.dto';
+import { UpdateStationDto } from '../../dto/station/update-station.dto';
+import { StationEntity } from '../../persistance/station.entity';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 import { validate as isUUID } from 'uuid';
 @Injectable()
@@ -17,8 +17,8 @@ export class StationsService {
   private readonly logger = new Logger('StationsService');
 
   constructor(
-    @InjectRepository(Station)
-    private readonly stationRepository: Repository<Station>,
+    @InjectRepository(StationEntity)
+    private readonly stationRepository: Repository<StationEntity>,
   ) {}
 
   async create(createStationDto: CreateStationDto) {
@@ -36,7 +36,7 @@ export class StationsService {
   }
 
   async findOne(term: string) {
-    let station: Station;
+    let station: StationEntity;
 
     if (isUUID(term)) {
       station = await this.stationRepository.findOneBy({ id : term });

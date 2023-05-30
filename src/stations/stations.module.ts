@@ -1,15 +1,15 @@
-import { Module } from '@nestjs/common';
-import { StationsService } from './stations.service';
-import { StationsController } from './stations.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
+// import { Module } from '@nestjs/common';
+// import { StationsService } from '../service/station/stations.service';
+// import { StationsController } from '../controller/station/stations.controller';
+// import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Station } from './entities/station.entity';
+// import { Station } from '../persistance/station.entity';
 
-@Module({
-  controllers: [StationsController],
-  providers: [StationsService],
-  imports:[
-    TypeOrmModule.forFeature([Station])
-  ]
-})
-export class StationsModule {}
+// @Module({
+//   controllers: [StationsController],
+//   providers: [StationsService],
+//   imports:[
+//     TypeOrmModule.forFeature([Station])
+//   ]
+// })
+// export class StationsModule {}

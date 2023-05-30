@@ -5,10 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServiceModule } from './service/service.module';
 import { PersonController } from './controller/person/person.controller';
 import { PassengerController } from './controller/passenger/passenger.controller';
-import config from './typeorm.config';
+import { StationsController } from './controller/station/stations.controller';
 import { ConfigModule } from '@nestjs/config';
-import { StationsModule } from './stations/stations.module';
-import { PersonService } from './service/person/person.service';
 
 @Module({
   imports: [
@@ -24,10 +22,9 @@ import { PersonService } from './service/person/person.service';
       autoLoadEntities: true,
       dropSchema: true,
     }),
-    ServiceModule,
-    StationsModule,
+    ServiceModule
   ],
-  controllers: [AppController, PersonController, PassengerController],
+  controllers: [AppController, PersonController, PassengerController, StationsController],
   providers: [AppService],
 })
 export class AppModule {}
