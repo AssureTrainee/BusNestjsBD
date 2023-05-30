@@ -16,30 +16,27 @@ export class RouteController {
   constructor(private routeService: RouteService) {}
 
   @Get()
-  async getRoutes() {
+  async findAll() {
     return await this.routeService.findAllRoutes();
   }
 
   @Post()
-  async saveRoute(@Body() route: RouteDto) {
+  async create(@Body() route: RouteDto) {
     return await this.routeService.createRoute(route);
   }
 
   @Get(':id')
-  async getRouteById(@Param('id') routeId: string) {
+  async findById(@Param('id') routeId: string) {
     return await this.routeService.findRouteById(routeId);
   }
 
   @Patch(':id')
-  async updateRoute(
-    @Param('id') id: string,
-    @Body() routeUpdate: RouteUpdateDto,
-  ) {
+  async update(@Param('id') id: string, @Body() routeUpdate: RouteUpdateDto) {
     return await this.routeService.updateRoute(id, routeUpdate);
   }
 
   @Delete(':id')
-  async deleteRoute(@Param('id') id: string) {
+  async delete(@Param('id') id: string) {
     return await this.routeService.deleteRoute(id);
   }
 }

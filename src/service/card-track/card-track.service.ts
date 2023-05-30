@@ -70,8 +70,8 @@ export class CardTrackService {
   }
 
   async deleteCardTrackById(cardtrackId: string) {
-    const cardTrack = await this.findCardTrackById(cardtrackId);
-    await this.cardTrackRepository.remove(cardTrack);
+    const result = await this.findCardTrackById(cardtrackId);
+    await this.cardTrackRepository.remove(result);
     return true;
   }
 }

@@ -1,14 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsNotEmpty,
-  IsString,
-  IsUUID,
-  IsDate,
-  IsNumber,
-  IsOptional,
-} from 'class-validator';
-import { RouteEntity } from 'src/persistance/route.entity';
-import { StagePointEntity } from 'src/persistance/stage.point.entity';
+import { IsNotEmpty, IsString, IsUUID, IsDate } from 'class-validator';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class CardTrackDto {

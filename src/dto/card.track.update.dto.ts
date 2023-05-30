@@ -1,15 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsNotEmpty,
-  IsString,
-  IsUUID,
-  IsDate,
-  IsNumber,
-  IsOptional,
-} from 'class-validator';
-import { RouteEntity } from 'src/persistance/route.entity';
-import { StagePointEntity } from 'src/persistance/stage.point.entity';
-import { UUID } from 'typeorm/driver/mongodb/bson.typings';
+import { IsNotEmpty, IsString, IsDate, IsOptional } from 'class-validator';
 
 export class CardTrackUpdateDto {
   @IsString({ message: 'Code must be a string.' })

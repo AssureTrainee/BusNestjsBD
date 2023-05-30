@@ -19,6 +19,8 @@ import { ActivityEntity } from 'src/persistance/activity.entity';
 import { ItineraryEntity } from 'src/persistance/itineraty.entity';
 import { StagePointEntity } from 'src/persistance/stage.point.entity';
 import { CardTrackEntity } from 'src/persistance/card.track.entity';
+import { DetailStagePointService } from './detail-stage-point/detail-stage-point.service';
+import { DetailStagePointEntity } from 'src/persistance/detail.stage.point.entity';
 
 @Module({
   imports: [
@@ -35,6 +37,7 @@ import { CardTrackEntity } from 'src/persistance/card.track.entity';
       ItineraryEntity,
       StagePointEntity,
       CardTrackEntity,
+      DetailStagePointEntity,
     ]),
   ],
   providers: [
@@ -46,6 +49,7 @@ import { CardTrackEntity } from 'src/persistance/card.track.entity';
     StagePointService,
     CardTrackService,
     ActivityService,
+    DetailStagePointService,
   ],
   exports: [
     PersonService,
@@ -56,6 +60,7 @@ import { CardTrackEntity } from 'src/persistance/card.track.entity';
     StagePointService,
     CardTrackService,
     ActivityService,
+    DetailStagePointService,
   ],
 })
 export class ServiceModule {}

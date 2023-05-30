@@ -15,9 +15,9 @@ export class ItineraryService {
     private itineraryRepository: Repository<ItineraryEntity>,
   ) {}
 
-  //   async findAllActivities() {
-  //     return this.activityRepository.find();
-  //   }
+  async findAllItineraries() {
+    return this.itineraryRepository.find();
+  }
 
   async findItineraryById(itineraryId: string) {
     const activity = this.itineraryRepository.findOne({
@@ -54,9 +54,9 @@ export class ItineraryService {
   //     return await this.activityRepository.save(activity);
   //   }
 
-  //   async deleteActivityById(activityId: string) {
-  //     const activity = await this.findActivityById(activityId);
-  //     await this.activityRepository.remove(activity);
-  //     return true;
-  //   }
+  async deleteActivityById(itineraryId: string) {
+    const itinerary = await this.findItineraryById(itineraryId);
+    await this.itineraryRepository.remove(itinerary);
+    return true;
+  }
 }

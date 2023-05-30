@@ -10,7 +10,6 @@ import { ActivityDto } from 'src/dto/activity.dto';
 import { ActivityEntity } from 'src/persistance/activity.entity';
 import { Repository } from 'typeorm';
 import { RouteService } from '../route/route.service';
-import { RouteEntity } from 'src/persistance/route.entity';
 import { ActivityUpdateDto } from 'src/dto/activity.update.dto';
 import { ItineraryService } from '../itinerary/itinerary.service';
 
@@ -70,8 +69,8 @@ export class ActivityService {
   }
 
   async deleteActivityById(activityId: string) {
-    const activity = await this.findActivityById(activityId);
-    await this.activityRepository.remove(activity);
+    const result = await this.findActivityById(activityId);
+    await this.activityRepository.remove(result);
     return true;
   }
 }

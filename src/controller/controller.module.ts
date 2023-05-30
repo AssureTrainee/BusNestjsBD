@@ -5,6 +5,9 @@ import { PassengerController } from './passenger/passenger.controller';
 import { PersonController } from './person/person.controller';
 import { ActivityController } from './activity/activity.controller';
 import { ItineraryController } from './itinerary/itinerary.controller';
+import { StagePointController } from './stage-point/stage-point.controller';
+import { CardTrackController } from './card-track/card-track.controller';
+import { DetailStagePointController } from './detail-stage-point/detail-stage-point.controller';
 
 @Module({
   imports: [ServiceModule],
@@ -14,6 +17,9 @@ import { ItineraryController } from './itinerary/itinerary.controller';
     PersonController,
     ActivityController,
     ItineraryController,
+    StagePointController,
+    CardTrackController,
+    DetailStagePointController,
   ],
 })
 export class ControllerModule {}

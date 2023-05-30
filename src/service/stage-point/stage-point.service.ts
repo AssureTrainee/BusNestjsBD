@@ -71,8 +71,8 @@ export class StagePointService {
   }
 
   async deleteActivityById(stagePointId: string) {
-    const stagePoint = await this.findStagePointById(stagePointId);
-    await this.stagePointRepository.remove(stagePoint);
+    const result = await this.findStagePointById(stagePointId);
+    await this.stagePointRepository.remove(result);
     return true;
   }
 }
