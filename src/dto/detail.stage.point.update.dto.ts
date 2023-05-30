@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsUUID, IsDate, IsOptional } from 'class-validator';
+import { IsUUID, IsOptional } from 'class-validator';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class DetailStagePointUpdateDto {

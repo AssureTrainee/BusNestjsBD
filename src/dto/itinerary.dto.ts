@@ -1,12 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import {
-  IsNotEmpty,
-  IsString,
-  MaxLength,
-  IsUUID,
-  IsDate,
-} from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength, IsUUID } from 'class-validator';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class ItineraryDto {

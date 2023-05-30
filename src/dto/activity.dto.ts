@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsUUID, IsDate } from 'class-validator';
+import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class ActivityDto {
