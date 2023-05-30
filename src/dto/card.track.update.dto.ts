@@ -17,13 +17,11 @@ export class CardTrackUpdateDto {
   @ApiProperty({ type: String, description: 'status' })
   status: string;
 
-  @IsDate()
   @IsOptional()
   @ApiProperty({ type: String, description: 'departureTime' })
-  departureTime: Date;
+  departureTime: string;
 
-  @IsDate()
   @IsOptional()
   @ApiProperty({ type: String, description: 'arrivalTime' })
-  arrivalTime: Date;
+  arrivalTime: string;
 }

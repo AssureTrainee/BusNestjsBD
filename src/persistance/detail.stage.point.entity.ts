@@ -1,4 +1,5 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
@@ -14,11 +15,8 @@ export class DetailStagePointEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid', { name: 'detail_stage_point_id' })
   detailStagePointId: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'checked_at',
-  })
-  checkAt: Date;
+  @Column({ name: 'check_at', length: 100 })
+  checkAt: string;
 
   @JoinColumn({ name: 'card_track_id' })
   @ManyToOne(() => CardTrackEntity)

@@ -30,5 +30,5 @@ export class ItineraryEntity extends BaseEntity {
 
   @JoinColumn({ name: 'bus_id' })
   @ManyToOne(() => BusEntity)
-  bus: BusEntity;
+  Bus: BusEntity;
 }

@@ -10,10 +10,9 @@ import {
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class StagePointDto {
-  @IsDate({ message: 'Please provide a arrival time.' })
   @IsNotEmpty({ message: 'Please provide a arrival time.' })
   @ApiProperty({ type: Date, description: 'arrivalTime' })
-  arrivalTime: Date;
+  arrivalTime: string;
 
   @IsString({ message: 'Location must be a string.' })
   @IsNotEmpty({ message: 'Please provide a location.' })
@@ -26,8 +25,7 @@ export class StagePointDto {
   position: number;
 
   @ApiProperty({ type: UUID, description: 'targetStagePointId' })
-  @IsUUID('all', { message: 'Target stagePoint Id must be of type id.' })
-  @IsNotEmpty({ message: 'Please provide a stage point id.' })
+  @IsOptional()
   stagePointId: string;
 
   @ApiProperty({ type: UUID, description: 'routeId' })

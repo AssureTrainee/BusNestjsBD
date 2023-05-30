@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator';
+import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { UUID } from 'typeorm/driver/mongodb/bson.typings';
 
 export class LogStagePointDto {
@@ -8,8 +8,7 @@ export class LogStagePointDto {
   @IsNotEmpty({ message: 'Please provide a detailStagePointId.' })
   detailStagePointId: string;
 
-  @IsString({ message: 'checkedAt must be a date.' })
   @IsNotEmpty({ message: 'Please provide a checkedAt.' })
   @ApiProperty({ type: Date, description: 'checkedAt' })
-  checkedAt: Date;
+  checkedAt: string;
 }

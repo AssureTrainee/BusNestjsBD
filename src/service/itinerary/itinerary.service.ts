@@ -1,13 +1,26 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  NotFoundException,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ItineraryUpdateDto } from 'src/dto/itinerary.update.dto';
 import { ItineraryEntity } from 'src/persistance/itineraty.entity';
 import { Repository } from 'typeorm';
+import { BusService } from '../bus/bus.service';
+import { ItineraryDto } from 'src/dto/itinerary.dto';
+import { DriverService } from '../driver/driver.service';
 
 @Injectable()
 export class ItineraryService {
   constructor(
     @InjectRepository(ItineraryEntity)
     private itineraryRepository: Repository<ItineraryEntity>,
+    @Inject(forwardRef(() => BusService))
+    private busService: BusService,
+    @Inject(forwardRef(() => DriverService))
+    private driverService: DriverService,
   ) {}
 
   async findAllItineraries() {
@@ -15,41 +28,41 @@ export class ItineraryService {
   }
 
   async findItineraryById(itineraryId: string) {
-    const activity = this.itineraryRepository.findOne({
+    const itinerary = this.itineraryRepository.findOne({
       where: { itineraryId },
     });
-    if (!activity) {
+    if (!itinerary) {
       throw new NotFoundException(
-        `Activity with this id: ${itineraryId} not found`,
+        `itinerary with this id: ${itineraryId} not found`,
       );
     }
-    return activity;
+    return itinerary;
   }
 
-  //   async createActivity(activityData: ActivityDto) {
-  //     const activityInfo: ActivityUpdateDto = { ...activityData };
-  //     const route = await this.routeService.findRouteById(activityData.routeId);
-  //     const itinerary = await this.itineraryService.findItineraryById(
-  //       activityData.itineraryId,
-  //     );
-  //     if (!route && !itinerary) {
-  //       throw new NotFoundException();
-  //     }
+  async createItinerany(itineraryData: ItineraryDto) {
+    const itineraryInfo: ItineraryUpdateDto = { ...itineraryData };
+    const bus = await this.busService.findBusById(itineraryData.busId);
+    const driver = await this.driverService.findDriverById(
+      itineraryData.driverId,
+    );
+    if (!bus && !driver) {
+      throw new NotFoundException();
+    }
 
-  //     const activity = this.activityRepository.create(activityInfo);
-  //     activity.Route = route;
-  //     activity.Itinerary = itinerary;
+    const itinerary = this.itineraryRepository.create(itineraryInfo);
+    itinerary.Bus = bus;
+    itinerary.Driver = driver;
 
-  //     return this.activityRepository.save(activity);
-  //   }
+    return this.itineraryRepository.save(itinerary);
+  }
 
-  //   async updateActivity(activityId: string, activityData: ActivityUpdateDto) {
-  //     const activity: ActivityEntity = await this.findActivityById(activityId);
-  //     await this.activityRepository.merge(activity, activityData);
-  //     return await this.activityRepository.save(activity);
-  //   }
+  async updateItinerary(id: string, itineraryData: ItineraryUpdateDto) {
+    const itinerary: ItineraryEntity = await this.findItineraryById(id);
+    await this.itineraryRepository.merge(itinerary, itineraryData);
+    return await this.itineraryRepository.save(itinerary);
+  }
 
-  async deleteActivityById(itineraryId: string) {
+  async deleteItineraryById(itineraryId: string) {
     const itinerary = await this.findItineraryById(itineraryId);
     await this.itineraryRepository.remove(itinerary);
     return true;

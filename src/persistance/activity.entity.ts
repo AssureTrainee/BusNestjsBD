@@ -16,17 +16,11 @@ export class ActivityEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid', { name: 'activity_id' })
   activityId: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'departure_time',
-  })
-  departureTime: Date;
+  @Column({ name: 'departure_time' })
+  departureTime: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'arrival_time',
-  })
-  arrivalTime: Date;
+  @Column({ name: 'arrival_ime' })
+  arrivalTime: string;
 
   @Column({ name: 'details' })
   details: string;

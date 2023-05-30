@@ -18,15 +18,13 @@ export class CardTrackDto {
   @ApiProperty({ type: String, description: 'status' })
   status: string;
 
-  @IsDate()
   @IsNotEmpty({ message: 'Please provide a departure time.' })
   @ApiProperty({ type: String, description: 'departureTime' })
-  departureTime: Date;
+  departureTime: string;
 
-  @IsDate()
   @IsNotEmpty({ message: 'Please provide a arrival time.' })
   @ApiProperty({ type: String, description: 'arrivalTime' })
-  arrivalTime: Date;
+  arrivalTime: string;
 
   @ApiProperty({ type: UUID, description: 'activityId' })
   @IsUUID('all', { message: 'Activity id must be of type id.' })

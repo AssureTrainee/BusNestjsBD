@@ -15,7 +15,7 @@ export class OwnerEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid', { name: 'owner_id' })
   ownerId: string;
 
-  @Column({ name: 'status', length: 100 })
+  @Column({ name: 'status', length: 100, default: 'ACTIVE' })
   status: string;
 
   @OneToOne(() => PersonEntity)

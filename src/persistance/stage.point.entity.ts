@@ -15,7 +15,7 @@ export class StagePointEntity extends BaseEntity {
   stagePointId: string;
 
   @Column({ name: 'arrival_time' })
-  arrivalTime: Date;
+  arrivalTime: string;
 
   @Column({ name: 'location', length: 100 })
   location: string;
@@ -24,8 +24,8 @@ export class StagePointEntity extends BaseEntity {
   position: number;
 
   @JoinColumn({ name: 'target_stage_point_id' })
-  @OneToOne(() => StagePointEntity)
-  StagePoint: StagePointEntity;
+  @OneToOne(() => StagePointEntity, { nullable: true })
+  StagePoint: StagePointEntity | null;
 
   @JoinColumn({ name: 'route_id' })
   @ManyToOne(() => RouteEntity)

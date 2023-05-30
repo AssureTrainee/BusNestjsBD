@@ -1,4 +1,5 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
@@ -18,10 +19,6 @@ export class LogStagePointEntity extends BaseEntity {
   @OneToOne(() => DetailStagePointEntity)
   DetailStagePoint: DetailStagePointEntity;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'checked_at',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
-  checkedAt: Date;
+  @Column({ name: 'checked_at', length: 100 })
+  checkedAt: string;
 }

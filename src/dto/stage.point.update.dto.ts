@@ -2,10 +2,9 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsDate, IsNumber, IsOptional } from 'class-validator';
 
 export class StagePointUpdateDto {
-  @IsDate({ message: 'Please provide a arrival time.' })
   @IsOptional()
   @ApiProperty({ type: Date, description: 'arrivalTime' })
-  arrivalTime: Date;
+  arrivalTime: string;
 
   @IsString({ message: 'Location must be a string.' })
   @IsOptional()

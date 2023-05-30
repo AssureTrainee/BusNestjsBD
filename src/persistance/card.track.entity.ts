@@ -23,17 +23,11 @@ export class CardTrackEntity extends BaseEntity {
   @Column({ name: 'status', length: 100 })
   status: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'departure_time',
-  })
-  departureTime: Date;
+  @Column({ name: 'departure_time', length: 100 })
+  departureTime: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    name: 'arrival_time',
-  })
-  arrivalTime: Date;
+  @Column({ name: 'arrival_time', length: 100 })
+  arrivalTime: string;
 
   @JoinColumn({ name: 'activity_id' })
   @OneToOne(() => ActivityEntity)

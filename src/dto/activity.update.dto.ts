@@ -2,15 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsDate, IsOptional } from 'class-validator';
 
 export class ActivityUpdateDto {
-  @IsDate()
   @IsOptional()
   @ApiProperty({ type: Date, description: 'departureTime' })
-  departureTime: Date;
+  departureTime: string;
 
-  @IsDate()
   @IsOptional()
   @ApiProperty({ type: String, description: 'arrivalTime' })
-  arrivalTime: Date;
+  arrivalTime: string;
 
   @IsString({ message: 'Details must be a string.' })
   @IsOptional()
