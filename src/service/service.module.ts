@@ -13,6 +13,8 @@ import { RouteEntity } from 'src/persistance/route.entity';
 import { PersonService } from './person/person.service';
 import { PassengerService } from './passenger/passenger.service';
 import { StationsService } from './station/stations.service';
+import { PaymentMethodService } from './payment-method/payment-method.service';
+import { PaymentMethodsEntity } from 'src/persistance/payment.method.entity';
 
 @Module({
   imports: [
@@ -25,10 +27,11 @@ import { StationsService } from './station/stations.service';
       OwnerEntity,
       PassengerEntity,
       RouteEntity,
-      StationEntity
+      StationEntity,
+      PaymentMethodsEntity
     ]),
   ],
-  providers: [PersonService, PassengerService, RouteService, StationsService],
-  exports: [PersonService, PassengerService, RouteService, StationsService],
+  providers: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService],
+  exports: [PersonService, PassengerService, RouteService, StationsService, PaymentMethodService],
 })
 export class ServiceModule {}
