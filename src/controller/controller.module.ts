@@ -20,6 +20,8 @@ import { PassengeraccountController } from './passengeraccount/passenger.account
 import { OwnerController } from './owner/owner.controller';
 import { ManagerController } from './manager/manager.controller';
 import { DriverController } from './driver/driver.controller';
+import { PhoneNumberController } from './phonenumeber/phonenumeber.controller';
+import { AddressController } from './address/address.controller';
 
 @Module({
   imports: [ServiceModule],
@@ -41,7 +43,9 @@ import { DriverController } from './driver/driver.controller';
     LogStagePointController,
     BusController,
     PaymentPointController,
-    PassengeraccountController
+    PassengeraccountController,
+    PhoneNumberController,
+    AddressController,
   ],
 })
 export class ControllerModule {}

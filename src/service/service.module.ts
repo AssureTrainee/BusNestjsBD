@@ -38,9 +38,8 @@ import { PaymentPointService } from './paymentpoint/payment-point.service';
 import { PaymentPointEntity } from '../persistance/payment.point.entity';
 import { PassengerAccountEntity } from '../persistance/passenger.account.entity';
 import { PassengeraccountService } from './passengeraccount/passenger.account.service';
-
-
-
+import { PhonenumberService } from './phonenumber/phonenumber.service';
+import { AddressService } from './address/address.service';
 
 @Module({
   imports: [
@@ -64,7 +63,7 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
       PaymentMethodsEntity,
       AccountTypeEntity,
       PaymentPointEntity,
-      PassengerAccountEntity
+      PassengerAccountEntity,
     ]),
   ],
   providers: [
@@ -89,7 +88,9 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
-    PassengeraccountService
+    PassengeraccountService,
+    PhonenumberService,
+    AddressService,
   ],
   exports: [
     PersonService,
@@ -113,7 +114,9 @@ import { PassengeraccountService } from './passengeraccount/passenger.account.se
     PaymentMethodService,
     AccountTypeService,
     PaymentPointService,
-    PassengeraccountService
+    PassengeraccountService,
+    PhonenumberService,
+    AddressService,
   ],
 })
 export class ServiceModule {}
